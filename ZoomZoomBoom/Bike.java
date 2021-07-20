@@ -14,6 +14,16 @@ public class Bike extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        
+    }
+    
+    public void crash(){
+        World world = getWorld();
+        if(isAtEdge()){
+            world.removeObject(this);
+        }
+        // Verifica si no quedan jugadores verdes en el mapa
+        if(getWorld().getObjects(Red.class).size() != 0){
+        }
+    }
 }

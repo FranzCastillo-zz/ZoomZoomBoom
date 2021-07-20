@@ -12,11 +12,41 @@ public class Red extends Bike
      * Act - do whatever the Red wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
+    
+    private final int Right = 0;
+    private final int Up = 270;
+    private final int Left = 180;
+    private final int Down = 90;
+    
+    private final int Speed = 5;
+    
+    public Red(){
+        setRotation(0);
         GreenfootImage image = getImage();  
         image.scale(40, 20);
         setImage(image);
-        setLocation(100,400);
-    }    
+    }
+    
+    public void act() 
+    {
+        moveAround();
+        crash();
+    }
+    
+    public void moveAround(){
+        move(Speed);
+        if(Greenfoot.isKeyDown("w") && getRotation() != Down){
+            setRotation(Up);
+        }
+        if(Greenfoot.isKeyDown("a") && getRotation() != Right ){
+            setRotation(Left);
+        }        
+        if(Greenfoot.isKeyDown("s") && getRotation() != Up){
+            setRotation(Down);
+        }
+        if(Greenfoot.isKeyDown("d") && getRotation() != Left){
+            setRotation(Right);
+        }
+    }
+
 }

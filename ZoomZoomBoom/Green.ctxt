@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ moveAround()
 comment4.params=newSpeed
 comment4.target=void\ setSpeed(int)
-numComments=5
+comment5.params=
+comment5.target=void\ crash()
+numComments=6

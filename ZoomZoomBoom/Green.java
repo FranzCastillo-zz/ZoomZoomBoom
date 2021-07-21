@@ -17,7 +17,7 @@ public class Green extends Bike
     private final int Left = 180;
     private final int Down = 90;
     
-    private int Speed = 5;
+    static int Speed = 5;
     
     public Green(){
         GreenfootImage image = getImage();  
@@ -25,16 +25,32 @@ public class Green extends Bike
         setImage(image);
         setLocation(900,400);
         setRotation(180);
+        Speed = 5;
     }
+    
     
     public void act() 
     {
         moveAround();
         crash();
+        leaveTrail(Color.GREEN);
+        /*if(getRotation() == Left){
+            leaveTrail(new Color(103, 207, 0), getX() + 30, getY());
+        }
+        if(getRotation() == Right){
+            leaveTrail(new Color(103, 207, 0), getX() - 30, getY());
+        }
+        if(getRotation() == Up){
+            leaveTrail(new Color(103, 207, 0), getX(), getY() + 30);
+        }
+        if(getRotation() == Down){
+            leaveTrail(new Color(103, 207, 0), getX() + 30, getY() - 30 );
+        }*/
     }
     
     private void moveAround(){
         move(Speed);
+        
         if(Greenfoot.isKeyDown("up") && getRotation() != Down){
             setRotation(Up);
         }
@@ -49,7 +65,22 @@ public class Green extends Bike
         }
     }
     
-    public void setSpeed(int newSpeed){
+    
+    public static void setSpeed(int newSpeed){
         Speed = newSpeed;
+    }
+    
+    private void crash(){
+        String looser = "";
+        World world = getWorld();
+        if(isAtEdge() || isTouching(Top.class)){ //Agregar cabeza con cabeza y trail  || isTouching(Trail.class)
+            Red.setSpeed(0);
+            setSpeed(0);
+            Winner win = new Winner("GANA EL ROJO");
+            PlayAgain restart = new PlayAgain();
+            
+            world.addObject(win, 500,500);
+            world.addObject(restart, 500,650);
+        }
     }
 }

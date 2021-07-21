@@ -17,24 +17,26 @@ public class Red extends Bike
     private final int Up = 270;
     private final int Left = 180;
     private final int Down = 90;
-    
-    private final int Speed = 5;
+    static int Speed;
     
     public Red(){
         setRotation(0);
         GreenfootImage image = getImage();  
         image.scale(40, 20);
         setImage(image);
+        Speed = 5;
     }
     
     public void act() 
     {
         moveAround();
-        crash();
+        //crash();
+        leaveTrail(Color.RED);
     }
     
     public void moveAround(){
         move(Speed);
+        
         if(Greenfoot.isKeyDown("w") && getRotation() != Down){
             setRotation(Up);
         }
@@ -48,5 +50,29 @@ public class Red extends Bike
             setRotation(Right);
         }
     }
-
+    
+    public static void setSpeed(int newSpeed){
+        Speed = newSpeed;
+    }
+    
+    public void crash(){
+        /*
+         * 
+         * Si chocas con la orilla
+         * Si chocas con la cabeza del otro
+         * Si
+         * 
+         */
+        World world = getWorld();
+        String looser = "";
+        
+        if(isAtEdge()){
+            Red.setSpeed(0);
+            Green.setSpeed(0);
+            
+        }
+        // Verifica si no quedan jugadores rojos en el mapa
+        if(world.getObjects(Red.class).size() != 0){
+        }
+    }
 }

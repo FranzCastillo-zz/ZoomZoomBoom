@@ -18,7 +18,7 @@ public class Projectile extends Actor
     
     public void act() 
     {
-        if(isAtEdge() || isTouching(Bike.class)){
+        if(isAtEdge() || isTouching(Bike.class) || isTouching(Top.class) || isTouching(Projectile.class)){
             getWorld().removeObject(this);
         }
         move(10);

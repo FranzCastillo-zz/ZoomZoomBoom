@@ -22,7 +22,7 @@ public class Bike extends Actor
         getWorld().addObject(new Trail(color), getX()+1, getY()+1);
     }
     public void Shoot(String key){
-        if(key.equals(Greenfoot.getKey())){
+        if(Greenfoot.isKeyDown(key)){
             int distance = 50;
             if(getRotation() == Up){
                 getWorld().addObject(new Projectile(getRotation()), getX(), getY() - distance);

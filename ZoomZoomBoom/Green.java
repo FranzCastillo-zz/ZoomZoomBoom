@@ -34,7 +34,6 @@ public class Green extends Bike
         crash();
         Shoot("control");
     }
-    
     private void moveAround(){
         counter++;
         if(counter == Speed){

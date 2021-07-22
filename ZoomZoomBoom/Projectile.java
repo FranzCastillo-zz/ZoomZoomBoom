@@ -16,6 +16,9 @@ public class Projectile extends Actor
         setRotation(rotation);
     }
     
+    int Speed;
+    
+    
     public void act() 
     {
         if(isAtEdge() || isTouching(Bike.class) || isTouching(Top.class) || isTouching(Projectile.class)){

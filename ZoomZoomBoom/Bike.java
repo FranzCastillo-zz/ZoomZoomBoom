@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Bike here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Bike extends Actor
 {
     private final int Right = 0;
@@ -18,12 +12,23 @@ public class Bike extends Actor
     
     public static int stop=0;
     public static int delay=0;
+    
+    int timer;
+    public Bike(){
+        timer = 10;
+    }
+    
+    
+    
     public void leaveTrail(Color color){
-        if(color != Color.RED){
-            getWorld().addObject(new Trail(color), getX()+1, getY()+1);
-        }
-        else{
-            getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+        timer--;
+        if(timer <= 0){
+            if(color != Color.RED){
+                getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+            }
+            else{
+                getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+            }
         }
     }
     

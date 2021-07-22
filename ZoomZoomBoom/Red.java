@@ -32,8 +32,10 @@ public class Red extends Bike
         setRotation(0);
         setSpeed(5);
     }
+    private int time = 1000;
     public void act() 
     {
+        time--;
         Bike.delay();
         moveAround();
         crash("VERDE");
@@ -42,7 +44,9 @@ public class Red extends Bike
     public void moveAround(){
         counter++;
         if(counter == Speed){
-            leaveTrail(Color.RED);
+            if(time <= 0){
+                leaveTrail(Color.RED);
+            }
             move(Speed * 2);
             counter = 0;
         }

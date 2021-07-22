@@ -27,8 +27,12 @@ public class Green extends Bike
         setRotation(180);
         setSpeed(5);
     }
+    
+    
+    private int time = 1000;
     public void act() 
     {
+        time--;
         Bike.delay();
         moveAround();
         crash("ROJO");
@@ -37,7 +41,9 @@ public class Green extends Bike
     private void moveAround(){
         counter++;
         if(counter == Speed){
-            leaveTrail(new Color(72, 181, 100));
+            if(time <= 0){
+                leaveTrail(new Color(72, 181, 100));
+            }
             move(Speed * 2);
             counter = 0;
         }

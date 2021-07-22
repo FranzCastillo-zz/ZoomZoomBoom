@@ -1,14 +1,15 @@
 #BlueJ class context
 comment0.target=Bike
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Bike\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=color
-comment1.target=void\ leaveTrail(greenfoot.Color)
-comment2.params=winner
-comment2.target=void\ crash(java.lang.String)
-comment3.params=key
-comment3.target=void\ Shoot(java.lang.String)
-comment4.params=
-comment4.target=void\ delay()
-comment5.params=x
-comment5.target=void\ setDelay(int)
-numComments=6
+comment1.params=
+comment1.target=Bike()
+comment2.params=color
+comment2.target=void\ leaveTrail(greenfoot.Color)
+comment3.params=winner
+comment3.target=void\ crash(java.lang.String)
+comment4.params=key
+comment4.target=void\ Shoot(java.lang.String)
+comment5.params=
+comment5.target=void\ delay()
+comment6.params=x
+comment6.target=void\ setDelay(int)
+numComments=7

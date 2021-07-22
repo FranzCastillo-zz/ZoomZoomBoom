@@ -14,10 +14,9 @@ public class Top extends Actor
         img.setColor(new Color(255, 224, 99));
         img.fill();
         setImage(img);
-        
     }
     public void act() 
     {
-        // Add your action code here.
+        
     }    
 }

@@ -8,12 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Projectile extends Actor
 {
-    /**
-     * Act - do whatever the Projectile wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Projectile(int rotation){
+        GreenfootImage dot = new GreenfootImage(2, 2);
+        dot.setColor(Color.BLACK);
+        dot.fill();
+        setImage(dot);
+        setRotation(rotation);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+        if(isAtEdge() || isTouching(Bike.class)){
+            getWorld().removeObject(this);
+        }
+        move(10);
+    }     
 }

@@ -30,7 +30,6 @@ public class MyWorld extends World
         addObject(red,100,400);
         Green green = new Green();
         addObject(green,900,400);
-        //red.setLocation(92,357);
         Top top = new Top();
         addObject(top,0,0);
     }

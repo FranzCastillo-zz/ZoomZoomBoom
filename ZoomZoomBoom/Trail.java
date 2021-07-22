@@ -14,14 +14,10 @@ public class Trail extends Actor
      */
     GreenfootImage dot;
     public Trail(Color color){
-        dot = new GreenfootImage(3, 2);
-        dot.setColor(color);
-        dot.fill();
-        setImage(dot);
-        
-        /*dot = new GreenfootImage(3, 2);
-        dot.setColor(color);
-        dot.fill();*/
+        GreenfootImage img = new GreenfootImage(8,8);
+        img.setColor(color);
+        img.fill();
+        setImage(img);
     }
     
     public void act() 

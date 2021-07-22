@@ -19,7 +19,26 @@ public class Bike extends Actor
     public static int stop=0;
     public static int delay=0;
     public void leaveTrail(Color color){
-        getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+        if(color != Color.RED){
+            getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+        }
+        else{
+            getWorld().addObject(new Trail(color), getX()+1, getY()+1);
+        }
+    }
+    
+    public void crash(String winner){
+        String looser = "";
+        World world = getWorld();
+        if(isTouching(Trail.class) || isTouching(Top.class) || isAtEdge() || isTouching(Projectile.class)){ //Agregar cabeza con cabeza y trail  || isTouching(Trail.class)
+            Red.setSpeed(0);
+            Green.setSpeed(0);
+            Winner win = new Winner("GANA EL " + winner);
+            PlayAgain restart = new PlayAgain();
+            
+            world.addObject(win, 500,500);
+            world.addObject(restart, 500,650);
+        }
     }
     public void Shoot(String key){
         if(Greenfoot.isKeyDown(key)){

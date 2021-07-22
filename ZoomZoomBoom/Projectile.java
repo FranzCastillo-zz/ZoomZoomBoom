@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Projectile extends Actor
 {
     public Projectile(int rotation){
-        GreenfootImage dot = new GreenfootImage(2, 2);
+        GreenfootImage dot = new GreenfootImage(4, 4);
         dot.setColor(Color.BLACK);
         dot.fill();
         setImage(dot);

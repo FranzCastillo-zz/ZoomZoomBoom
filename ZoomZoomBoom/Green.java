@@ -25,13 +25,13 @@ public class Green extends Bike
         image.fill();
         setImage(image);
         setRotation(180);
+        setSpeed(5);
     }
-    
     public void act() 
     {
         Bike.delay();
         moveAround();
-        crash();
+        crash("ROJO");
         Shoot("control");
     }
     private void moveAround(){
@@ -52,20 +52,6 @@ public class Green extends Bike
         }
         if(Greenfoot.isKeyDown("right") && getRotation() != Left){
             setRotation(Right);
-        }
-    }
-    
-    private void crash(){
-        String looser = "";
-        World world = getWorld();
-        if(isTouching(Trail.class) || isTouching(Top.class) || isAtEdge() || isTouching(Projectile.class)){ //Agregar cabeza con cabeza y trail  || isTouching(Trail.class)
-            Red.setSpeed(0);
-            setSpeed(0);
-            Winner win = new Winner("GANA EL ROJO");
-            PlayAgain restart = new PlayAgain();
-            
-            world.addObject(win, 500,500);
-            world.addObject(restart, 500,650);
         }
     }
 }

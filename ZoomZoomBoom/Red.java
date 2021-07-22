@@ -30,16 +30,15 @@ public class Red extends Bike
         image.fill();
         setImage(image);
         setRotation(0);
+        setSpeed(5);
     }
-    
     public void act() 
     {
+        Bike.delay();
         moveAround();
-        crash();
-        leaveTrail(Color.RED);
+        crash("VERDE");
         Shoot("space");
     }
-    
     public void moveAround(){
         counter++;
         if(counter == Speed){
@@ -58,21 +57,6 @@ public class Red extends Bike
         }
         if(Greenfoot.isKeyDown("d") && getRotation() != Left){
             setRotation(Right);
-        }
-    }
-
-    public void crash(){
-
-        World world = getWorld();
-        String looser = "";
-        
-        if(isAtEdge()){
-            Red.setSpeed(0);
-            Green.setSpeed(0);
-            
-        }
-        // Verifica si no quedan jugadores rojos en el mapa
-        if(world.getObjects(Red.class).size() != 0){
         }
     }
 }

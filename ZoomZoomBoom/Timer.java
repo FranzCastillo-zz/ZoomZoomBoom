@@ -1,14 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Timer here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class Timer extends Top
 {
-    public Timer(String time){
-        setImage(new GreenfootImage(time, 50, Color.BLACK, new Color(255, 224, 99)));
+    public void act() 
+    {
+        int time = Bike.getTime();
+        if(time > 0){
+            setImage(new GreenfootImage("Tiempo: " + time, 50, Color.BLACK, new Color(255, 224, 99)));
+        }
+        else if(time < -200){
+            setImage(new GreenfootImage("", 50, Color.BLACK, new Color(255, 224, 99)));
+        }
+        else{
+            setImage(new GreenfootImage("ZOOM ZOOM", 50, Color.BLACK, new Color(255, 224, 99)));
+        }
     }
 }

@@ -1,11 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class MyWorld extends World
 {
     public MyWorld()
@@ -21,5 +14,7 @@ public class MyWorld extends World
         addObject(green,900,400);
         Top top = new Top();
         addObject(top,0,0);
+        Timer timer = new Timer();
+        addObject(timer, 500, 100);
     }
 }

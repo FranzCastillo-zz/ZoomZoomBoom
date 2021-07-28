@@ -1,11 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Top here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Top extends Actor
 {
     public Top()
@@ -14,9 +8,5 @@ public class Top extends Actor
         img.setColor(new Color(255, 224, 99));
         img.fill();
         setImage(img);
-    }
-    public void act() 
-    {
-        
-    }    
+    }  
 }

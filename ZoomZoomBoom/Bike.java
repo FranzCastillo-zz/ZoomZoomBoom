@@ -1,24 +1,42 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 public class Bike extends Actor
 {
+    // ---------------------------- VARIABLES ------------------------------
     private final int Right = 0;
     private final int Up = 270;
     private final int Left = 180;
     private final int Down = 90;
     
-    private int counter = 0;
     static int Speed = 5;
     
     public static int stop=0;
     public static int delay=0;
-    
-    int timer;
-    public Bike(){
-        timer = 10;
+    //-----------------------------------------------------------------------
+    //VERIFICA QUE YA AVANZO LA DISTANCIA NECESARIA PARA PODER DEJAR UN RASTRO
+    private int counter = 0;
+    public void setCounter(int x){
+        counter = x;
+    }
+    public int getCounter(){
+        return counter;
+    }
+
+    //TIEMPO PARA ACTIVAR LOS TRAILS
+    private static int time;
+    public static void setTime(int x){
+        time = x;
+    }
+    public static int getTime(){
+        return time;
     }
     
+    public int timer;
     
+    public Bike(){
+        timer = 10;
+        setTime(1000);
+    }
     
     public void leaveTrail(Color color){
         timer--;
@@ -31,11 +49,10 @@ public class Bike extends Actor
             }
         }
     }
-    
     public void crash(String winner){
         String looser = "";
         World world = getWorld();
-        if(isTouching(Trail.class) || isTouching(Top.class) || isAtEdge() || isTouching(Projectile.class)){ //Agregar cabeza con cabeza y trail  || isTouching(Trail.class)
+        if(isTouching(Trail.class) || isTouching(Top.class) || isAtEdge() || isTouching(Projectile.class)){ 
             Red.setSpeed(0);
             Green.setSpeed(0);
             Winner win = new Winner("GANA EL " + winner);
@@ -43,6 +60,17 @@ public class Bike extends Actor
             
             world.addObject(win, 500,500);
             world.addObject(restart, 500,650);
+            world.removeObjects(world.getObjects(Timer.class));
+        }
+        else if(isTouching(Bike.class)){ // Si chocan entre cabezas
+            Red.setSpeed(0);
+            Green.setSpeed(0);
+            Winner win = new Winner("EMPATE");
+            PlayAgain restart = new PlayAgain();
+            
+            world.addObject(win, 500,500);
+            world.addObject(restart, 500,650);
+            world.removeObjects(world.getObjects(Timer.class));
         }
     }
     public void Shoot(String key){

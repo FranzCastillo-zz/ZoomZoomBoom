@@ -18,7 +18,6 @@ public class Red extends Bike
     private final int Left = 180;
     private final int Down = 90;
     
-    private int counter = 0;
     static int Speed = 5;
     public static void setSpeed(int newSpeed){
         Speed = newSpeed;
@@ -32,23 +31,22 @@ public class Red extends Bike
         setRotation(0);
         setSpeed(5);
     }
-    private int time = 1000;
     public void act() 
     {
-        time--;
+        setTime(getTime() - 1);
         Bike.delay();
         moveAround();
         crash("VERDE");
         Shoot("space");
     }
     public void moveAround(){
-        counter++;
-        if(counter == Speed){
-            if(time <= 0){
+        setCounter(getCounter() + 1);
+        if(getCounter() == Speed){
+            if(getTime() <= 0){
                 leaveTrail(Color.RED);
             }
             move(Speed * 2);
-            counter = 0;
+            setCounter(0);
         }
         if(Greenfoot.isKeyDown("w") && getRotation() != Down){
             setRotation(Up);

@@ -1,18 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Red here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Red extends Bike
 {
-    /**
-     * Act - do whatever the Red wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     private final int Right = 0;
     private final int Up = 270;
     private final int Left = 180;
@@ -21,6 +9,9 @@ public class Red extends Bike
     static int Speed = 5;
     public static void setSpeed(int newSpeed){
         Speed = newSpeed;
+    }
+    public static int getSpeed(){
+        return Speed;
     }
     
     public Red(){

@@ -16,5 +16,10 @@ public class MyWorld extends World
         addObject(top,0,0);
         Timer timer = new Timer();
         addObject(timer, 500, 100);
+        Counter greenCounter = new Counter("Verde");
+        addObject(greenCounter, 900,50);
+        Counter redCounter = new Counter("Rojo");
+        addObject(redCounter, 75,50);
+        setPaintOrder(Counter.class, Timer.class, Top.class);
     }
 }

@@ -49,6 +49,7 @@ public class Bike extends Actor
             }
         }
     }
+       
     public void crash(String winner){
         String looser = "";
         World world = getWorld();
@@ -56,6 +57,12 @@ public class Bike extends Actor
             Red.setSpeed(0);
             Green.setSpeed(0);
             Winner win = new Winner("GANA EL " + winner);
+            if(winner == "ROJO"){
+                
+            }
+            else{
+                //GreenCounter.addGreen(1);
+            }
             PlayAgain restart = new PlayAgain();
             
             world.addObject(win, 500,500);

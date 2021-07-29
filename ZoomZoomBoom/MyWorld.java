@@ -9,7 +9,7 @@ public class MyWorld extends World
         super(1000, 700, 1); 
         prepare();
         backgroundMusic.playLoop();
-        backgroundMusic.setVolume(50);
+        backgroundMusic.setVolume(20);
     }
     private void prepare()
     {

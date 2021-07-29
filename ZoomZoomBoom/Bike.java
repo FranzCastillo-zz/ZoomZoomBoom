@@ -95,6 +95,7 @@ public class Bike extends Actor
     
     public void Shoot(String key){
         if(Greenfoot.isKeyDown(key)){
+            Greenfoot.playSound("Disparo.mp3");
             int distance = 50;
             if(getRotation() == Up){
                 getWorld().addObject(new Projectile(getRotation()), getX(), getY() - distance);

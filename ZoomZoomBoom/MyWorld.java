@@ -3,10 +3,13 @@ public class MyWorld extends World
 {
     Counter greenCounter;
     Counter redCounter;
+    GreenfootSound backgroundMusic = new GreenfootSound("ZoomZoomBoom.mp3");
     public MyWorld()
     {    
         super(1000, 700, 1); 
         prepare();
+        backgroundMusic.playLoop();
+        backgroundMusic.setVolume(50);
     }
     private void prepare()
     {

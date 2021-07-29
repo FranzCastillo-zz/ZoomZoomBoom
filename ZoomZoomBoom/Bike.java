@@ -12,6 +12,7 @@ public class Bike extends Actor
     
     public static int stop=0;
     public static int delay=0;
+    static String winner;
     //-----------------------------------------------------------------------
     //VERIFICA QUE YA AVANZO LA DISTANCIA NECESARIA PARA PODER DEJAR UN RASTRO
     private int counter = 0;
@@ -50,28 +51,39 @@ public class Bike extends Actor
         }
     }
        
-    public void crash(String winner){
+    public static String getWinner(){
+        return winner;
+    }
+    public void setWinner(String theWinner){
+        winner = theWinner;
+    }
+    
+    public void crash(String theWinner){
         String looser = "";
-        World world = getWorld();
+        MyWorld world = (MyWorld)getWorld();
         if(isTouching(Trail.class) || isTouching(Top.class) || isAtEdge() || isTouching(Projectile.class)){ 
-            Red.setSpeed(0);
-            Green.setSpeed(0);
-            Winner win = new Winner("GANA EL " + winner);
-            if(winner == "ROJO"){
-                
-            }
-            else{
-                //GreenCounter.addGreen(1);
-            }
+            Winner win = new Winner("GANA EL " + theWinner);
+            setWinner(theWinner);
             PlayAgain restart = new PlayAgain();
             
             world.addObject(win, 500,500);
             world.addObject(restart, 500,650);
             world.removeObjects(world.getObjects(Timer.class));
+            
+            if(theWinner == "ROJO"){
+                Red.setSpeed(0);
+                getWorld().removeObjects(getWorld().getObjects(Green.class));
+                Counter rc = world.getRedCounter();
+                rc.add(1);
+            }
+            else{
+                Green.setSpeed(0);
+                getWorld().removeObjects(getWorld().getObjects(Red.class));
+                Counter gc = world.getGreenCounter();
+                gc.add(1);
+            }
         }
         else if(isTouching(Bike.class)){ // Si chocan entre cabezas
-            Red.setSpeed(0);
-            Green.setSpeed(0);
             Winner win = new Winner("EMPATE");
             PlayAgain restart = new PlayAgain();
             
@@ -80,6 +92,7 @@ public class Bike extends Actor
             world.removeObjects(world.getObjects(Timer.class));
         }
     }
+    
     public void Shoot(String key){
         if(Greenfoot.isKeyDown(key)){
             int distance = 50;

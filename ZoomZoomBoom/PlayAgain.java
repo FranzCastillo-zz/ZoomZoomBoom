@@ -16,12 +16,5 @@ public class PlayAgain extends Screens
     {
         restart();
     }
-    
-    private void restart(){   
-        if(Greenfoot.mouseClicked(this)){
-            Greenfoot.setWorld(new MyWorld());
-        }
-    }
-    
-    
+   
 }

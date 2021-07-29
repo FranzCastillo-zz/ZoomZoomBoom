@@ -1,6 +1,8 @@
 import greenfoot.*;
 public class MyWorld extends World
 {
+    Counter greenCounter;
+    Counter redCounter;
     public MyWorld()
     {    
         super(1000, 700, 1); 
@@ -16,10 +18,19 @@ public class MyWorld extends World
         addObject(top,0,0);
         Timer timer = new Timer();
         addObject(timer, 500, 100);
-        Counter greenCounter = new Counter("Verde");
+        
+        greenCounter = new Counter("Verde: ");
         addObject(greenCounter, 900,50);
-        Counter redCounter = new Counter("Rojo");
+        redCounter = new Counter("Rojo: ");
         addObject(redCounter, 75,50);
+        
+        
         setPaintOrder(Counter.class, Timer.class, Top.class);
+    }
+    public Counter getGreenCounter(){
+        return greenCounter;
+    }
+    public Counter getRedCounter(){
+        return redCounter;
     }
 }

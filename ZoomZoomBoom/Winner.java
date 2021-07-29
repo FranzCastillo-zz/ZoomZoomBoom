@@ -12,13 +12,7 @@ public class Winner extends Screens
     {
         restart();
     }
-    
-    private void restart(){   
-        if(Greenfoot.mouseClicked(this)){
-            Greenfoot.setWorld(new MyWorld());
-        }
-    }
-    
+
     public Winner(String winner){
         setImage(new GreenfootImage(winner, 50, Color.BLACK, new Color(255, 230, 128)));
     }

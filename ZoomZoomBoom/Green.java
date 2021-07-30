@@ -19,9 +19,12 @@ public class Green extends Bike
     }
     
     public Green(){
-        GreenfootImage image = new GreenfootImage(10,10);
-        image.setColor(new Color(72, 181, 0));
-        image.fill();
+        //GreenfootImage image = new GreenfootImage(10,10);
+        //image.setColor(new Color(72, 181, 0));
+        //image.fill();
+        //setImage(image);
+        GreenfootImage image = getImage();  
+        image.scale(10, 10);
         setImage(image);
         setRotation(180);
         setSpeed(5);

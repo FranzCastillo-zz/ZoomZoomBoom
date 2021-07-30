@@ -15,9 +15,12 @@ public class Red extends Bike
     }
     
     public Red(){
-        GreenfootImage image = new GreenfootImage(10,10);
+        /*GreenfootImage image = new GreenfootImage(10,10);
         image.setColor(Color.RED);
         image.fill();
+        setImage(image);*/
+        GreenfootImage image = getImage();  
+        image.scale(10, 10);
         setImage(image);
         setRotation(0);
         setSpeed(5);
